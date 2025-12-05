@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="807.0" prefWidth="1275.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitcar.app.controladores.GerenciarEmpregadosControlador">
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <top>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Gerenciar Funcionários">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Label>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Label text="Buscar por Nome/Email:" />
+                  <TextField fx:id="campoBuscaEmpregado" HBox.hgrow="ALWAYS" />
+                  <Label text="Status:" />
+                  <ComboBox fx:id="comboBoxFiltroStatus" prefWidth="120.0" promptText="Todos" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" />
+                  <Button fx:id="botaoBuscar" mnemonicParsing="false" onAction="#acaoBuscar" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" text="Buscar" />
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </VBox>
+   </top>
+   <center>
+      <TableView fx:id="tabelaEmpregados" prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="colIdEmpregado" prefWidth="93.0" text="ID" />
+          <TableColumn fx:id="colNome" prefWidth="220.0" text="Nome" />
+          <TableColumn fx:id="colEmail" prefWidth="267.0" text="Email" />
+          <TableColumn fx:id="colCargo" prefWidth="214.0" text="Cargo" />
+          <TableColumn fx:id="colStatus" minWidth="0.0" prefWidth="210.0" text="Status" />
+        </columns>
+      </TableView>
+   </center>
+   <right>
+      <VBox prefWidth="250.0" spacing="10.0" style="-fx-border-color: lightgrey; -fx-border-width: 0 0 0 1;" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <children>
+            <Label text="Detalhes do Funcionário">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Separator prefWidth="200.0" />
+            <GridPane hgap="5.0" vgap="8.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="80.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="ID:" />
+                  <TextField fx:id="campoIdEmpregado" editable="false" GridPane.columnIndex="1" />
+                  <Label text="Nome:" GridPane.rowIndex="1" />
+                  <TextField fx:id="campoNome" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="Email:" GridPane.rowIndex="2" />
+                  <TextField fx:id="campoEmailForm" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Senha:" GridPane.rowIndex="3" />
+                  <PasswordField fx:id="campoSenha" promptText="(Nova ou em branco)" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Cargo:" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="comboBoxCargo" prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label text="Status:" GridPane.rowIndex="5" />
+                  <ComboBox fx:id="comboBoxStatus" prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               </children>
+            </GridPane>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Button fx:id="botaoAdicionar" mnemonicParsing="false" onAction="#acaoAdicionar" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" text="Novo" />
+                  <Button fx:id="botaoSalvar" mnemonicParsing="false" onAction="#acaoSalvar" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" text="Salvar" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Button fx:id="botaoLimparForm" mnemonicParsing="false" onAction="#acaoLimparForm" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" text="Limpar" />
+                  <Button fx:id="botaoAtivarDesativar" mnemonicParsing="false" onAction="#acaoAtivarDesativar" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" text="Ativar/Desativar" />
+               </children>
+            </HBox>
+            <Label fx:id="rotuloStatusForm" wrapText="true">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <ImageView fitHeight="237.0" fitWidth="228.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo_gitcar.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+   </right>
+   <bottom>
+      <Label fx:id="rotuloStatus" BorderPane.alignment="CENTER_LEFT">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </Label>
+   </bottom>
+</BorderPane>

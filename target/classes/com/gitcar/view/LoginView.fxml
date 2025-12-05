@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="1087.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitcar.app.controladores.LoginControlador">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <AnchorPane prefHeight="613.0" prefWidth="1136.0">
+         <children>
+            <ImageView fitHeight="671.0" fitWidth="1165.0" layoutX="21.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/carro_fundo.jpg" />
+               </image>
+            </ImageView>
+            <GridPane hgap="10.0" layoutX="442.0" layoutY="287.0" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="50.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="317.0" minWidth="10.0" prefWidth="300.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="87.0" minHeight="0.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="87.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Email:" GridPane.rowIndex="0" />
+                  <TextField fx:id="campoEmail" GridPane.columnIndex="1" />
+                  <Label text="Senha:" GridPane.rowIndex="1" />
+                  <PasswordField fx:id="campoSenha" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <!-- Campo de senha visível (sobreposto) - NOME CORRIGIDO -->
+                  <TextField fx:id="campoSenhaVisivel" managed="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ImageView fx:id="openeye" fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@../Images/open_eye.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets left="268.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <ImageView fx:id="closeeye" fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@../Images/eye.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets left="268.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <Button fx:id="caixaMostrarSenha" mnemonicParsing="false" onAction="#alternarMostrarSenha" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: transparent;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="268.0" />
+                     </GridPane.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+                  <Button fx:id="botaoEntrar" mnemonicParsing="false" onAction="#acaoBotaoEntrar" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" text="ENTRAR" translateX="90.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <Label layoutX="604.0" layoutY="106.0" text="LOGIN">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="215.0" fitWidth="217.0" layoutX="908.0" layoutY="-54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo_gitcar.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="962.0" layoutY="80.0" text="GITCAR">
+               <font>
+                  <Font name="Garamond" size="29.0" />
+               </font>
+            </Label>
+            <!-- Label de status - NOME CORRIGIDO -->
+            <Label fx:id="rotuloStatus" layoutX="565.0" layoutY="437.0" prefHeight="17.0" prefWidth="229.0" textFill="RED" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

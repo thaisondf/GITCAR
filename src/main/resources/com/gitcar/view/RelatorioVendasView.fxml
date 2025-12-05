@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="785.0" prefWidth="1281.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitcar.app.controladores.RelatorioVendasControlador">
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <top>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Relatório de Vendas">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Label>
+            <Separator prefWidth="200.0" />
+            <GridPane hgap="10.0" prefHeight="70.0" prefWidth="1236.0" vgap="10.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="48.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="222.0" minWidth="10.0" prefWidth="146.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="583.0" minWidth="10.0" prefWidth="580.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="8.0" prefWidth="53.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="454.0" minWidth="10.0" prefWidth="150.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="349.0" minWidth="10.0" prefWidth="74.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="6.0" prefWidth="150.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="58.0" text="Período:">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin></Label>
+                  <DatePicker fx:id="datePickerDataInicio" prefWidth="150.0" promptText="Data Início" style="-fx-background-color: white; -fx-border-color: black;" GridPane.columnIndex="1" />
+                  <DatePicker fx:id="datePickerDataFim" prefWidth="150.0" promptText="Data Fim" style="-fx-background-color: white; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                     <GridPane.margin>
+                        <Insets right="-160.0" />
+                     </GridPane.margin>
+                  </DatePicker>
+                  <ComboBox fx:id="comboBoxFiltroVendedor" prefWidth="150.0" promptText="Todos" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="4" />
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="148.0" text="Status Veículo" GridPane.columnIndex="5" />
+                  <ComboBox fx:id="comboBoxFiltroStatusVeiculo" prefWidth="150.0" promptText="Todos" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="6" />
+                  <Label text="Modelo/Marca:" translateX="246.0" GridPane.columnIndex="2" />
+                  <TextField fx:id="campoFiltroModeloMarca" maxWidth="-Infinity" prefHeight="25.0" prefWidth="151.0" translateX="330.0" GridPane.columnIndex="2" />
+                  <Label prefHeight="17.0" prefWidth="137.0" text="Vendedor" GridPane.columnIndex="3" />
+               </children>
+            </GridPane>
+            <HBox alignment="CENTER_LEFT" prefHeight="19.0" prefWidth="1261.0" spacing="30.0">
+               <children>
+                  <Button fx:id="botaoAplicarFiltros" mnemonicParsing="false" onAction="#acaoAplicarFiltros" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" text="Aplicar Filtros">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></Button>
+                  <Button fx:id="botaoLimparFiltros" mnemonicParsing="false" onAction="#acaoLimparFiltros" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" text="Limpar Filtros" />
+                  <Button fx:id="botaoExportarRelatorio" mnemonicParsing="false" onAction="#acaoExportarRelatorio" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" text="Exportar Relatório" />
+               </children>
+               <padding>
+                  <Insets left="430.0" />
+               </padding>
+            </HBox>
+            <Separator prefWidth="200.0" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </VBox>
+   </top>
+   <center>
+      <TabPane prefHeight="560.0" prefWidth="1333.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Veículos Vendidos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tabelaVeiculosVendidos" layoutX="14.0" layoutY="14.0" prefHeight="481.0" prefWidth="1039.0" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="10.0">
+                            <columns>
+                                <TableColumn fx:id="colIdVeiculoVendido" prefWidth="50.0" text="ID" />
+                                <TableColumn fx:id="colModeloVendido" prefWidth="110.0" text="Modelo" />
+                                <TableColumn fx:id="colMarcaVendida" prefWidth="110.0" text="Marca" />
+                                <TableColumn fx:id="colValorVendido" prefWidth="132.0" text="Valor Venda" />
+                                <TableColumn fx:id="colDataVenda" prefWidth="182.0" text="Data Venda" />
+                                <TableColumn fx:id="colVendedorVenda" prefWidth="152.0" text="Vendedor" />
+                                <TableColumn fx:id="colClienteVenda" prefWidth="165.0" text="Cliente" />
+                                <TableColumn fx:id="colPagamentoVenda" prefWidth="151.0" text="Pagamento" />
+                            </columns>
+                        </TableView>
+                        <ImageView fitHeight="112.0" fitWidth="121.0" layoutX="573.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/logo_gitcar.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Veículos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tabelaVeiculosDisponiveis" layoutX="14.0" layoutY="14.0" prefHeight="350.0" prefWidth="850.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                          <columns>
+                            <TableColumn fx:id="colIdVeiculoDisp" prefWidth="50.0" text="ID" />
+                            <TableColumn fx:id="colModeloDisp" prefWidth="127.0" text="Modelo" />
+                            <TableColumn fx:id="colMarcaDisp" prefWidth="155.0" text="Marca" />
+                            <TableColumn fx:id="colAnoDisp" prefWidth="109.0" text="Ano" />
+                            <TableColumn fx:id="colPrecoDisp" prefWidth="164.0" text="Preço Venda" />
+                            <TableColumn fx:id="colStatusDisp" prefWidth="130.0" text="Status" />
+                            <TableColumn fx:id="colKmDisp" prefWidth="146.0" text="KM" />
+                            <TableColumn fx:id="colCategoriaDisp" prefWidth="159.0" text="Categoria" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+   <right>
+      <VBox prefHeight="400.0" prefWidth="200.0" spacing="10.0" style="-fx-border-color: lightgrey; -fx-border-width: 0 0 0 1;" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <children>
+            <Label text="Estatísticas Resumidas">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Separator prefWidth="200.0" />
+            <Label fx:id="rotuloTotalVendido" text="Total vendidos: 0" />
+            <Label fx:id="rotuloTotalVeiculosExibidos" text="Veículos disponíveis: 0" />
+            <Separator prefWidth="200.0" />
+            <Label text="Top 3 Vendedores:" />
+            <Label fx:id="rotuloMelhoresVendedores" text="1. - 2. - 3. -" />
+            <Separator prefWidth="200.0" />
+            <Label text="Modelo mais vendido:" />
+            <Label fx:id="rotuloModeloMaisVendido" text="-" />
+            <Label fx:id="rotuloValorTotalVendas" prefHeight="45.0" prefWidth="179.0" text="Valor total: R$ 0,00" />
+         </children>
+      </VBox>
+   </right>
+   <bottom>
+        <Label fx:id="rotuloStatus" BorderPane.alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="10.0" />
+            </padding>
+        </Label>
+   </bottom>
+</BorderPane>

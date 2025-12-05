@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="807.0" prefWidth="1275.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitcar.app.controladores.EditarVeiculoControlador">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="1055.0" layoutX="104.0" layoutY="359.0">
+         <image>
+            <Image url="@../images/sem%20fundo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="559.0" layoutY="176.0" text="Editar Veículo">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="422.0" layoutY="200.0" text="ID:" />
+      <Label fx:id="idLabel" layoutX="491.0" layoutY="200.0" text="[ID]" />
+      <Label layoutX="422.0" layoutY="234.0" text="Modelo:" />
+      <TextField fx:id="modeloField" layoutX="491.0" layoutY="229.0" prefWidth="150.0" />
+      <Label layoutX="422.0" layoutY="274.0" text="Preço:" />
+      <TextField fx:id="precoField" layoutX="491.0" layoutY="269.0" prefWidth="150.0" />
+      <Label layoutX="422.0" layoutY="314.0" text="Marca:" />
+      <TextField fx:id="marcaField" layoutX="491.0" layoutY="309.0" prefWidth="150.0" />
+      <Label layoutX="422.0" layoutY="354.0" text="Ano:" />
+      <TextField fx:id="anoField" layoutX="491.0" layoutY="349.0" prefWidth="150.0" />
+      <Label layoutX="422.0" layoutY="394.0" text="Categoria:" />
+      <ComboBox fx:id="categoriaComboBox" layoutX="491.0" layoutY="389.0" prefWidth="150.0" promptText="Selecione" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" />
+      <Label layoutX="665.0" layoutY="234.0" text="Combustível:" />
+      <ComboBox fx:id="combustivelComboBox" layoutX="748.0" layoutY="230.0" prefWidth="150.0" promptText="Selecione" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" />
+      <Label layoutX="665.0" layoutY="274.0" text="Cor:" />
+      <TextField fx:id="corField" layoutX="748.0" layoutY="270.0" prefWidth="150.0" />
+      <Label layoutX="665.0" layoutY="314.0" text="KM:" />
+      <TextField fx:id="kmField" layoutX="748.0" layoutY="310.0" prefWidth="150.0" />
+      <Label layoutX="665.0" layoutY="354.0" text="Placa:" />
+      <TextField fx:id="placaField" layoutX="748.0" layoutY="350.0" prefWidth="150.0" />
+      <Label layoutX="665.0" layoutY="394.0" text="Câmbio:" />
+      <ComboBox fx:id="cambioComboBox" layoutX="748.0" layoutY="390.0" prefWidth="150.0" promptText="Selecione" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" />
+      <Label layoutX="665.0" layoutY="434.0" text="Status:" />
+      <ComboBox fx:id="statusComboBox" layoutX="748.0" layoutY="430.0" prefWidth="150.0" promptText="Selecione" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" />
+      <Button layoutX="617.0" layoutY="480.0" mnemonicParsing="false" onAction="#salvarEdicao" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8;" text="Salvar Edição" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="391.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="438.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="305.0" fitWidth="300.0" layoutX="975.0" layoutY="-41.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo_gitcar.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
